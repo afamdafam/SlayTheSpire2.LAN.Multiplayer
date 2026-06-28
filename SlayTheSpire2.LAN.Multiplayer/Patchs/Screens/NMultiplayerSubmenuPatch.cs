@@ -102,6 +102,26 @@ namespace SlayTheSpire2.LAN.Multiplayer.Patchs.Screens
                 }));
 
             LanMultiplayerSubmenuButtonService.Instance.LanAbandonButton = lanAbandonButton;
+
+            var lanJoinButton = (NSubmenuButton)buttonContainerNode.GetNode("HostButton").Duplicate();
+
+            NSubmenuButtonDuplicateMaterial(lanJoinButton);
+
+            buttonContainerNode.AddChildSafely(lanJoinButton);
+            buttonContainerNode.MoveChild(lanJoinButton, 4);
+
+            lanJoinButton.SetIconAndLocalization("JOIN");
+
+            var lanJoinButtonTitle = Traverse.Create(lanJoinButton).Field("_title").GetValue<MegaLabel>();
+            lanJoinButtonTitle.SetTextAutoSize("LAN Join");
+
+            lanJoinButton.Connect(NClickableControl.SignalName.Released,
+                Callable.From<NButton>(_ =>
+                {
+                    LanJoinMode.IsActive = true;
+                    var stack = Traverse.Create(__instance).Field("_stack").GetValue<NSubmenuStack>();
+                    stack.PushSubmenuType<NJoinFriendScreen>();
+                }));
         }
 
         private static void NSubmenuButtonDuplicateMaterial(NSubmenuButton nSubmenuButton)

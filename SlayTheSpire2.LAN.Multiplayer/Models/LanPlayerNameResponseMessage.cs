@@ -10,6 +10,7 @@ namespace SlayTheSpire2.LAN.Multiplayer.Models
         public PlayerNames playerNames;
 
         public bool ShouldBroadcast => false;
+        public bool ShouldBuffer => false;
         public NetTransferMode Mode => NetTransferMode.Reliable;
         public LogLevel LogLevel => LogLevel.Info;
 

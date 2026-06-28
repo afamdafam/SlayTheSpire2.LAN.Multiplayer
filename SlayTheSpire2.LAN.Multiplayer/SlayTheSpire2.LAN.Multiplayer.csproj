@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -6,6 +6,9 @@
     <Nullable>enable</Nullable>
     <AssemblyVersion>1.6.3.0</AssemblyVersion>
     <FileVersion>1.6.3.0</FileVersion>
+    <GodotProjectDir>$(MSBuildProjectDirectory)</GodotProjectDir>
+    <!-- Override in Directory.Build.props: <STS2GameDir>path/to/data_sts2_windows_x86_64</STS2GameDir> -->
+    <STS2GameDir Condition="'$(STS2GameDir)' == ''">D:\Slay the Spire 2\data_sts2_windows_x86_64</STS2GameDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,16 +17,20 @@
 
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>V:\SteamLibrary\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\0Harmony.dll</HintPath>
+      <HintPath>$(STS2GameDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="GodotSharp">
-      <HintPath>V:\SteamLibrary\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\GodotSharp.dll</HintPath>
+      <HintPath>$(STS2GameDir)\GodotSharp.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Steamworks.NET">
-      <HintPath>V:\SteamLibrary\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\Steamworks.NET.dll</HintPath>
+      <HintPath>$(STS2GameDir)\Steamworks.NET.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="sts2">
-      <HintPath>V:\SteamLibrary\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\sts2.dll</HintPath>
+      <HintPath>$(STS2GameDir)\sts2.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 

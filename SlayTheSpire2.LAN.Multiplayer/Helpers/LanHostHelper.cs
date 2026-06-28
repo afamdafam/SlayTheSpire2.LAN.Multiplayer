@@ -46,6 +46,7 @@ namespace SlayTheSpire2.LAN.Multiplayer.Helpers
                 //Add one more max client to send the full lobby message
                 netService.StartENetHost(port, maxPlayers + 1);
                 Log.Info($"HostGame open on port:{port}");
+                LanDiscoveryService.Instance.StartHosting(port, maxPlayers, gameMode.ToString());
                 if (!netErrorInfo.HasValue)
                 {
                     switch (gameMode)
@@ -108,6 +109,8 @@ namespace SlayTheSpire2.LAN.Multiplayer.Helpers
                 NetErrorInfo? netErrorInfo = null;
                 netService.StartENetHost(port, maxPlayers + 1);
                 Log.Info($"HostGame open on port:{port}");
+                var modeLabel = run.DailyTime.HasValue ? "Daily" : run.Modifiers.Count > 0 ? "Custom" : "Standard";
+                LanDiscoveryService.Instance.StartHosting(port, maxPlayers, modeLabel);
                 if (!netErrorInfo.HasValue)
                 {
                     if (run.Modifiers.Count > 0)

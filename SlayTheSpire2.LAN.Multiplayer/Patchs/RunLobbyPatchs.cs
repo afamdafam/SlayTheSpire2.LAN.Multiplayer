@@ -81,6 +81,8 @@ namespace SlayTheSpire2.LAN.Multiplayer.Patchs
                 {
                     netService.UnregisterMessageHandler<LanPlayerNameRequestMessage>(lanPlayerNameService
                         .HandleLanPlayerNameRequestMessage);
+
+                    LanDiscoveryService.Instance.StopHosting();
                 }
             }
         }
@@ -103,6 +105,8 @@ namespace SlayTheSpire2.LAN.Multiplayer.Patchs
                     {
                         ____netService.UnregisterMessageHandler<LanPlayerNameRequestMessage>(lanPlayerNameService
                             .HandleLanPlayerNameRequestMessage);
+
+                        LanDiscoveryService.Instance.StopHosting();
                     }
                 }
             }

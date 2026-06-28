@@ -1,0 +1,11 @@
+{
+  "id": "SlayTheSpire2.LAN.Multiplayer",
+  "name": "LAN Multiplayer",
+  "version": "1.7.0",
+  "description": "Play Slay the Spire 2 multiplayer over LAN / direct IP.",
+  "author": "SlayTheSpire2.LAN.Multiplayer",
+  "has_dll": true,
+  "has_pck": false,
+  "affects_gameplay": true,
+  "dependencies": []
+}
