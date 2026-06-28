@@ -19,8 +19,6 @@ Play **Slay the Spire 2** with friends on the same local network.
 - Automatic LAN discovery — nearby hosts appear in the join list automatically
 - Works entirely within your LAN — no internet, no accounts, no relay needed
 
-For internet play without port forwarding, see [STS2 Public Lobby](https://github.com/adamsyuhky/STS2.PublicLobby), which is compatible with this mod.
-
 
 
 ## Installation
